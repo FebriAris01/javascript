@@ -1,0 +1,66 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script language="javascript">
+
+var pegawai = "Ridwan";
+var jabatan = "Manajer";
+var status = "Menikah";
+
+if(jabatan == 'Manajer'){
+   gajipokok = 15000000; 
+   } 
+   else if(jabatan == 'AsistenManajer'){
+           gajipokok = 10000000; 
+           } 
+           else if(jabatan == 'Staff'){
+                   gajipokok = 5000000; 
+                   }
+                   else{
+                        gajipokok = 0; 
+                        } 
+
+if(jabatan == 'Manajer'){
+   gajipokok = 15000000; 
+   } 
+   else if(jabatan == 'AsistenManajer'){
+           gajipokok = 10000000;   
+           }
+
+let tunjanganjabatan = gajipokok * 0.15;
+
+let bpjs = gajipokok * 0.1;
+
+let tunjangankeluarga = (status == 'Menikah') ? 0.2 * gajipokok : 0;
+
+let totalgaji = gajipokok + tunjanganjabatan + bpjs + tunjangankeluarga;
+
+document.write("<table class=table><center><h3>DATA PEGAWAI</h3></center>" +
+"" +
+"<thead>" +
+    "<tr>" +
+        "<th>Nama Pegawai</th>" +
+        "<th>Jabatan</th>" +
+        "<th>Status</th>" +
+        "<th>Gaji Pokok</th>" +
+        "<th>Tunjangan Pendapatan</th>" +
+        "<th>BPJS</th>" +
+        "<th>Tunjangan Keluarga</th>" +
+    "</tr>" +
+"</thead>" +
+"<tbody>" +
+    "<td><Pegawai: </td>" + pegawai +
+    "<td><Jabatan: </td>" + jabatan +
+    "<td><Status: </td>" + status+
+    "<td><Gaji Pokok: </td>Rp " + gajipokok +
+    "<td><Tunjangan Jabatan: </td>Rp " + tunjanganjabatan +
+    "<td><BPJS: </td>Rp " + bpjs +
+    "<td><Tunjangan Keluarga: </td>Rp " + tunjangankeluarga +
+    "<tfoot>" + 
+        "<tr>" +
+            "<td colspan=3><center>Total Gaji</center></td>" +
+            "<td colspan=4><center><Total Gaji : </td><center>Rp " + totalgaji +
+        "</tr>" +
+    "</tfoot>" +
+"</tbody>" +
+"</table>");
+</script>
