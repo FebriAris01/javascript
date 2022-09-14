@@ -1,0 +1,70 @@
+<h3 align="center">DATA GAJI PEGAWAI</h3>
+		<table align="center" cellpadding="10" width="90%">
+			<thead>
+				<tr bgcolor="red">
+					<th>NO</th>
+					<th>NAMA</th>
+					<th>JABATAN</th>
+                    <th>AGAMA</th>
+                    <th>GAJI POKOK</th>
+                    <th>TUNJANGAN JABATAN</th>
+                    <th>TUNJANGAN KESEHATAN</th>
+                    <th>GAJI KOTOR</th>
+                    <th>ZAKAT PROFESI</th>
+                    <th>TAKE HOME PAY</th>
+				</tr>
+			</thead>
+			<tbody>
+                <script language="javascript">
+                var no, warna, jabatan, gajipokok, tunjanganjabatan, 
+                tunjangankesehatan, gajikotor, zakatprofesi, takehomepay;
+                for(no = 1; no <= 100; no++){
+                    warna = (no % 2 == 1) ? 'yellow' :'blue';
+                    
+                    agama = (no % 2 == 1) ? 'Muslim' :'Non Muslim';
+
+                    if (no>0 && no<=25) jabatan ="Manajer";
+                        else if (no>25 && no<=50) jabatan ="Asisten Manajer";
+                            else if (no>50 && no<=75) jabatan ="Supervisor";
+                                else if (no>75 && no<=100) jabatan ="Staff";
+                                    else jabatan="";
+                    
+                    switch (jabatan){
+                        case "Manajer" : gajipokok = 15000000; break; 
+                        case "Asisten Manajer" : gajipokok = 10000000; break; 
+                        case "Supervisor" : gajipokok = 7000000; break; 
+                        case "Staff" : gajipokok = 4000000; break; 
+                        default: gajipokok = ""; break;
+                    }  
+                    
+                    tunjanganjabatan = gajipokok * 0.2;
+
+                    tunjangankesehatan = gajipokok * 0.1;
+
+                    gajikotor = gajipokok + tunjanganjabatan + tunjangankesehatan;
+
+                    if(agama == "Muslim" && gajikotor>=7000000){
+                        zakatprofesi = gajikotor * 0.025;
+                    }
+                    else {
+                        zakatprofesi = 0;
+                    }
+                    
+                    takehomepay = gajikotor - zakatprofesi;
+
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${no}</td>
+                        <td>Pegawai${no}</td>
+                        <td>${jabatan}</td>
+                        <td>${agama}</td>
+                        <td>Rp ${gajipokok}</td>
+                        <td>Rp ${tunjanganjabatan}</td>
+                        <td>Rp ${tunjangankesehatan}</td>
+                        <td>Rp ${gajikotor}</td>
+                        <td>Rp ${zakatprofesi}</td>
+                        <td>Rp ${takehomepay}</td>
+                    </tr>`);
+                }    
+                </script>
+			</tbody>
+		</table>
