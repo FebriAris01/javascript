@@ -1,0 +1,65 @@
+<script language="javascript">
+
+let m1 = {nama:"Andi", nilai:75};
+let m2 = {nama:"Rindu", nilai:55};
+let m3 = {nama:"Budi", nilai:95};
+let m4 = {nama:"Putri", nilai:85};
+let m5 = {nama:"Santoso", nilai:25};
+let m6 = {nama:"Indah", nilai:65};
+let m7 = {nama:"Rendi", nilai:59};
+let m8 = {nama:"Bagas", nilai:63};
+let m9 = {nama:"Rani", nilai:78};
+let m10 = {nama:"Wanto", nilai:98};
+
+let mahasiswa = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10];
+
+</script>
+<h3 align="center">Daftar Nilai Mahasiswa</h3>
+		<table align="center" border="1" cellpadding="10">
+			<thead>
+				<tr bgcolor="red">
+					<th>NO</th>
+					<th>NAMA</th>
+					<th>NILAI</th>
+					<th>KETERANGAN</th>
+					<th>GRADE</th>
+					<th>PREDIKAT</th>
+				</tr>
+			</thead>
+			<tbody>
+                <script language="javascript">
+                let no = 1;    
+                for(m of mahasiswa) { 
+       
+                    warna = (no % 2 == 1) ? 'lightblue' :'lightgreen';
+                    
+                    let ket = ( m.nilai >= 60) ? "Lulus" : "Gagal";
+                    
+                    if (m.nilai >=85 && m.nilai <=100) grade ="A";
+                        else if (m.nilai>=75 && m.nilai<85) grade="B";
+                            else if (m.nilai>=65 && m.nilai<75) grade ="C";
+                                else if (m.nilai>=60 && m.nilai<65) grade ="D";
+                                    else if (m.nilai>0 && m.nilai<60) grade ="E";
+                                        else grade="";
+
+                    switch (grade){
+                        case "A" : predikat = "Memuaskan"; break; 
+                        case "B" : predikat = "Bagus"; break; 
+                        case "C" : predikat = "Cukup"; break; 
+                        case "D" : predikat = "Kurang"; break; 
+                        case "E" : predikat = "Buruk"; break; 
+                        default: predikat = ""; break;
+                    } 
+ 
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${no++}</td>
+                        <td>${m.nama}</td>
+                        <td>${m.nilai}</td>
+                        <td>${ket}</td>
+                        <td>${grade}</td>
+                        <td>${predikat}</td>
+                    </tr>`);
+                }
+                </script>
+			</tbody>
+		</table>
