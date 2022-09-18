@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>Tugas 4 javascript</title>
+
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h4 align="center">Pembelian Barang dengan Konversi Kurs</h4>
+          
+        <form id="frm">
+
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nama Pembeli</label>
+        <input type="text" class="form-control" name="nama" id="exampleFormControlInput1" placeholder="Nama Pembeli">
+        </div>
+
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nama Barang</label>
+        <input type="text" class="form-control" name="barang" id="exampleFormControlInput2" placeholder="Nama Barang">
+        </div>
+
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Harga Barang</label>
+        <input type="text" class="form-control" name="harga" id="exampleFormControlInput2" placeholder="Harga Barang">
+        </div>
+
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Jumlah Beli</label>
+        <input type="text" class="form-control" name="jumlah" id="exampleFormControlInput2" placeholder="Jumlah Beli">
+      </div>
+      
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Valuta Asing</label>
+        <select class="form-control" onchange='konversiKurs()' name="valas" id="exampleFormControlSelect1">
+            <option value="">-- Pilih Valuta Asing --</option>
+            <option value="14917">USD (14917)</option>
+            <option value="10590">SGD (10590)</option>
+            <option value="14918">EUR (14918)</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">Data Pembelian</div>
+            <div class="card-body" id="isi">
+    
+            </div>
+            <div class="card-footer" id="total">
+                
+            </div>
+        </div>
+    </div>  
+          </thead>
+        </table>  
+      </div>
+    </form>
+        </div>          
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+   </body>
+</html>
+<script >
+
+  function konversiKurs(){   
+    let nama = document.getElementById('frm').nama.value;
+    let barang = document.getElementById('frm').barang.value;
+    let harga = document.getElementById('frm').harga.value;
+    let jumlah = document.getElementById('frm').jumlah.value;
+    let valas = document.getElementById('frm').valas.value;
+    let totalbayar = harga / valas * jumlah;
+
+  let hasil = `
+        Nama Pembeli: ${nama}
+        <br/>Nama Barang:  ${barang}
+        <br/>Harga Barang: ${harga}
+        <br/>Jumlah Barang: ${jumlah}
+        <br/>Valuta Asing: ${valas}
+    `
+    document.getElementById('isi').innerHTML = hasil;
+
+    if (valas == "14917") {
+        document.getElementById('total').innerHTML = `Total : USD $${totalbayar.toFixed(2)}`;
+    } else if (valas  == "10590") {
+        document.getElementById('total').innerHTML = `Total : SGD $${totalbayar.toFixed(2)}`;
+    } else if (valas == "14918") {
+        document.getElementById('total').innerHTML = `Total : EUR €${totalbayar.toFixed(2)}`;
+    } else {
+        alert('Pilih Valuta Asing')
+    }
+}
+ </script>
