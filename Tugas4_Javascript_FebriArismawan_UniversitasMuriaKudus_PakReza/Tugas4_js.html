@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <title>Tugas 4 javascript</title>
+    <title>Tugas 4 Javascript</title>
 
   </head>
   <body>
@@ -80,7 +80,7 @@
     let harga = document.getElementById('frm').harga.value;
     let jumlah = document.getElementById('frm').jumlah.value;
     let valas = document.getElementById('frm').valas.value;
-    let totalbayar = harga / valas * jumlah;
+    let totalbayar = harga * jumlah * valas;
 
   let hasil = `
         Nama Pembeli: ${nama}
@@ -88,17 +88,10 @@
         <br/>Harga Barang: ${harga}
         <br/>Jumlah Barang: ${jumlah}
         <br/>Valuta Asing: ${valas}
+        <br/>Total Bayar: ${totalbayar}
     `
     document.getElementById('isi').innerHTML = hasil;
 
-    if (valas == "14917") {
-        document.getElementById('total').innerHTML = `Total : USD $${totalbayar.toFixed(2)}`;
-    } else if (valas  == "10590") {
-        document.getElementById('total').innerHTML = `Total : SGD $${totalbayar.toFixed(2)}`;
-    } else if (valas == "14918") {
-        document.getElementById('total').innerHTML = `Total : EUR €${totalbayar.toFixed(2)}`;
-    } else {
-        alert('Pilih Valuta Asing')
-    }
+    
 }
  </script>
