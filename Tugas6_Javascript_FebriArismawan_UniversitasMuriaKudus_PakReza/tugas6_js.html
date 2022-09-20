@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<div class="container px-sm-5 my-sm-3"> 
+<h3 align="center">Data Gempa</h3>
+<table class="table table-bordered border-dark table-striped ">
+	<thead class="table-dark">
+		<tr align="center">
+			<th>No</th>
+			<th>Lokasi Gempa</th>
+			<th>Skala</th>
+			<th>Dampak Gempa</th>
+		</tr>
+	</thead>
+	<tbody>
+
+    <script>
+    let no=1;
+    class Gempa{
+        constructor(lokasi, skala){
+            this.lokasi = lokasi;
+            this.skala = skala;
+        }
+    
+        DampakGempa(){
+            if(this.skala <= 2 ) this.dampakgempa = 'Tidak Terasa';
+            else if(this.skala > 2 && this.skala <= 4) this.dampakgempa = 'Bangunan Retak-retak';
+            else if(this.skala > 4 && this.skala <= 6) this.dampakgempa = 'Bangunan Roboh';
+            else if(this.skala > 6 ) this.dampakgempa = 'Bangunan Roboh dan Berpotensi Tsunami';
+            else this.dampakgempa = '';
+    
+            return this.dampakgempa;
+        }
+    
+        InfoGempa(){
+            document.write(`<tr> 
+            <td align="center">${no++}</td> 
+            <td>${this.lokasi}</td>
+            <td align="center">${this.skala}</td>
+            <td>${this.DampakGempa()}</td>
+            </tr>`);
+        }
+    }
+    
+    g1 = new Gempa('Bandung, Jawa Barat',3.5);
+    g2 = new Gempa('Samarinda, Kalimantan Timur',5.9);
+    g3 = new Gempa('Padang, Sumatera Barat',2.3);
+    g4 = new Gempa('Palembang, Sumatera Selatan',7.4);
+    g5 = new Gempa('Sidoarjo, Jawa Timur',4.5);
+    g6 = new Gempa('Cilacap, Jawa Tengah',6);
+    g7 = new Gempa('Ternate, Maluku Utara',8.6);
+    g8 = new Gempa('Makassar, Sulawesi Selatan',1.8);
+    g9 = new Gempa('Denpasar, Bali',2.5);
+    g10 = new Gempa('Jayapura, Papua',5.2);
+    
+    g1.InfoGempa(); 
+    g2.InfoGempa();
+    g3.InfoGempa();
+    g4.InfoGempa();
+    g5.InfoGempa();
+    g6.InfoGempa();
+    g7.InfoGempa();
+    g8.InfoGempa();
+    g9.InfoGempa();
+    g10.InfoGempa();
+    
+    </script>
+    </tbody>
+</table>
+</div>
+       
